@@ -16,7 +16,7 @@ class SplashPage extends GetWidget<SplashController> {
             controller: controller.baseRefreshController,
             itemCount: controller.listTest.length,
             itemBuilder: (context, index) => InkWell(
-              onTap: () {},
+              onTap: () => controller.sentData(),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(

@@ -9,13 +9,20 @@ import 'package:shop_all_fe/common/module/sql_module.dart';
 import 'package:shop_all_fe/model/sign_in.dart';
 import 'package:shop_all_fe/model/user_information.dart';
 import 'package:dio/dio.dart' as dio;
+import 'package:web_socket_channel/io.dart';
 
 class SplashController extends BaseController {
   var listTest = <String>[].obs;
   BaseRefreshController? baseRefreshController;
-
+  var channel;
   @override
   Future initialData() async {
+    channel = IOWebSocketChannel.connect(Uri.parse('wss://websocket-echo.glitch.me'));
+
+    channel.stream.listen((message) {
+      showError(message);
+    });
+
     baseRefreshController =
         BaseRefreshController(controller: RefreshController(), callData: () => fetchData());
     await fetchData();
@@ -30,5 +37,9 @@ class SplashController extends BaseController {
     baseRefreshController?.setEndPoint(false);
     UserInformation? uf =
         await Client.getClient().login(SignIn(password: '123456', userName: 'adminapp'));
+  }
+
+  sentData() {
+    channel.sink.add('received!123123');
   }
 }

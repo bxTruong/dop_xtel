@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:shop_all_fe/common/core/base_function.dart';
 
@@ -9,7 +10,16 @@ class BaseRefreshController {
   bool? endPoint;
 
   BaseRefreshController(
-      {this.controller, this.callData, this.pageIndex, this.isRefreshing, this.endPoint});
+      {RefreshController? controller,
+      @required this.callData,
+      int? pageIndex,
+      bool? isRefreshing,
+      bool? endPoint}) {
+    controller == null ? this.controller = RefreshController() : this.controller = controller;
+    isRefreshing == null ? this.isRefreshing = false : this.isRefreshing = isRefreshing;
+    pageIndex == null ? this.pageIndex = 1 : this.pageIndex = pageIndex;
+    endPoint == null ? this.endPoint = false : this.endPoint = endPoint;
+  }
 
   Future refreshData() async {
     showLog('Refresh data');
