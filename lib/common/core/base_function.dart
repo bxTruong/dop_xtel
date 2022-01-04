@@ -28,3 +28,9 @@ void showWarning(Object message) {
     print('\x1B[33m$message\x1B[0m');
   }
 }
+
+void showDioLog(Object message) {
+  if (kDebugMode) {
+    print('\x1B[35m$message\x1B[0m');
+  }
+}

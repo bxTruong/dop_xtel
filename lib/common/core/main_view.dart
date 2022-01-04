@@ -34,7 +34,6 @@ class MainView extends StatelessWidget {
       draw = drawer;
       endDraw = endDrawer;
     }
-
     return WillPopScope(
         child: Scaffold(
             appBar: appBar,

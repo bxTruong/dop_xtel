@@ -40,8 +40,8 @@ class BaseResponsive extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    showLog('WIDTH: ' + MediaQuery.of(context).size.width.toString());
-    showLog('HEIGHT: ' + MediaQuery.of(context).size.height.toString());
+    // showLog('WIDTH: ' + MediaQuery.of(context).size.width.toString());
+    // showLog('HEIGHT: ' + MediaQuery.of(context).size.height.toString());
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth <= smallScreenSize) {

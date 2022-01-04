@@ -14,19 +14,29 @@ class BaseController extends GetxController {
     super.onInit();
   }
 
-  Future initialData() async {}
+  Future<void> initialData() async {
+    await fetchData();
+  }
 
-  Future callData() async {}
+  Future<void> callData() async {}
 
-  void refreshToken() {}
+  void refreshToken(DioError exception) {}
 
-  void forbiddenException() {}
+  void forbiddenException(DioError exception) {}
 
-  void notFoundException() {}
+  void notFoundException(DioError exception) {}
+
+  void badRequestException(DioError exception) {}
 
   void noConnectException() {}
 
-  Future fetchData() async {
+  void timeOutException(DioError exception) {}
+
+  void receiveTimeOutException(DioError exception) {}
+
+  void otherException(DioError exception) {}
+
+  Future<void> fetchData() async {
     bool hasConnection = await hasConnect();
     showWarning('Internet connection: ' + hasConnection.toString());
     if (hasConnection) {
@@ -53,15 +63,22 @@ class BaseController extends GetxController {
   }
 
   void catchException(Object exception) {
+    showError('Exception: ' + exception.toString());
     if (exception is DioError) {
       if (exception.response?.statusCode == 401) {
-        refreshToken();
+        refreshToken(exception);
       } else if (exception.response?.statusCode == 403) {
-        forbiddenException();
+        forbiddenException(exception);
       } else if (exception.response?.statusCode == 404) {
-        notFoundException();
+        notFoundException(exception);
       } else if (exception.response?.statusCode == 502) {
-        noConnectException();
+        badRequestException(exception);
+      } else if (exception.type == DioErrorType.connectTimeout) {
+        timeOutException(exception);
+      } else if (exception.type == DioErrorType.receiveTimeout) {
+        receiveTimeOutException(exception);
+      } else {
+        otherException(exception);
       }
     }
   }
