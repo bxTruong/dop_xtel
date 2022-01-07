@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marquee/marquee.dart';
 
+//marquee: ^2.2.0
 class BaseMarquee extends StatelessWidget {
   const BaseMarquee({Key? key}) : super(key: key);
 

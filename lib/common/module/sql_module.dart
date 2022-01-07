@@ -1,5 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 
+// shared_preferences: ^2.0.11
 class SQLModule {
   static SQLModule? _module;
   String? _databaseName;

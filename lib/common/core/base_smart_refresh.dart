@@ -10,6 +10,7 @@ import 'package:shop_all_fe/common/export_this.dart';
 import 'package:shop_all_fe/common/resource/style_resourse.dart';
 import 'package:shop_all_fe/common/utils.dart';
 
+//pull_to_refresh: ^2.0.0
 class BaseSmartRefresh extends StatelessWidget {
   final BaseRefreshController? controller;
   final Widget? child;

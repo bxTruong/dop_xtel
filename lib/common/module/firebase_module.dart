@@ -7,6 +7,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:shop_all_fe/common/core/base_function.dart';
 
+/*
+ * firebase_messaging: ^11.2.4
+ * firebase_core: ^1.10.6
+ * flutter_local_notifications: ^9.1.5
+ * firebase_remote_config: ^1.0.3
+*/
 class FirebaseModule {
   // Khởi tạo module firebase
   static Future<void> installSDK() async {

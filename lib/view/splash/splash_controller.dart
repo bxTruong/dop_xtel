@@ -1,14 +1,11 @@
-import 'package:dio/dio.dart';
+import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:shop_all_fe/common/core/base_controller.dart';
 import 'package:shop_all_fe/common/core/base_function.dart';
 import 'package:shop_all_fe/common/core/base_refresh_controller.dart';
-import 'package:get/get.dart';
 import 'package:shop_all_fe/common/export_this.dart';
-import 'package:shop_all_fe/common/module/sql_module.dart';
 import 'package:shop_all_fe/model/sign_in.dart';
 import 'package:shop_all_fe/model/user_information.dart';
-import 'package:dio/dio.dart' as dio;
 import 'package:web_socket_channel/io.dart';
 
 class SplashController extends BaseController {
