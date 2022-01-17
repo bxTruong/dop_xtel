@@ -21,21 +21,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => GetMaterialApp(
-          supportedLocales: const <Locale>[
-            Locale('vi', 'VN'),
-            Locale('en', 'EN'),
-          ],
-          debugShowCheckedModeBanner: false,
-          title: 'Laptop VN',
-          locale: LocalizationService.locale,
-          fallbackLocale: LocalizationService.fallbackLocale,
-          translations: LocalizationService(),
-          initialRoute: KeyPage.initial_page,
-          getPages: listPage,
-          theme: ThemeManager.lightTheme,
-          enableLog: true,
-          defaultTransition: Transition.size,
-          debugShowMaterialGrid: false);
+      supportedLocales: const <Locale>[Locale('vi', 'VN'), Locale('en', 'EN')],
+      debugShowCheckedModeBanner: false,
+      title: 'Base flutter',
+      locale: LocalizationService.locale,
+      fallbackLocale: LocalizationService.fallbackLocale,
+      translations: LocalizationService(),
+      initialRoute: KeyPage.initial_page,
+      getPages: listPage,
+      theme: theme,
+      enableLog: true,
+      defaultTransition: Transition.size,
+      debugShowMaterialGrid: false);
 }
 
 class MyHttpOverrides extends HttpOverrides {

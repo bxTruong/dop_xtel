@@ -31,6 +31,7 @@ dependencies:
   marquee: ^2.2.0
   sqflite: ^2.0.1
   font_awesome_flutter: ^9.2.0
+#  flutter_launcher_icons: ^0.9.2
 
 dev_dependencies:
   flutter_test:
@@ -44,3 +45,21 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  assets:
+    - assets/icons/
+    - assets/images/
+
+  fonts:
+    - family: Rokkitt
+      fonts:
+        - asset: assets/fonts/Rokkitt-Bold.ttf
+          style: bold
+        - asset: assets/fonts/Rokkitt-Medium.ttf
+          style: medium
+#flutter_icons:
+#  android: true
+#  ios: true
+#  image_path: "assets/icons/launcher_icon.png"
+#  Change icon:
+#  - flutter pub get
+#  - flutter pub run flutter_launcher_icons:main
