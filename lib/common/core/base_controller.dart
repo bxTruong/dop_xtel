@@ -3,11 +3,9 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:dop_xtel/common/core/base_function.dart';
+import 'package:shop_all_fe/common/core/base_function.dart';
 
 class BaseController extends GetxController {
-  Map<String, dynamic> parameters = HashMap();
-
   @override
   Future<void> onInit() async {
     await initialData();
@@ -81,21 +79,5 @@ class BaseController extends GetxController {
         otherException(exception);
       }
     }
-  }
-
-  void setParameter() {}
-
-  Map<String, dynamic> getParameter() {
-    return parameters;
-  }
-
-  Object getBody() {
-    return Object();
-  }
-
-  void setMessage(dynamic s){
-
-  }void setStatus(dynamic s){
-
   }
 }

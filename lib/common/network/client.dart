@@ -21,15 +21,15 @@ class Client {
         connectTimeout: _CONNECT_TIMEOUT,
         receiveTimeout: _RECEIVE_TIMEOUT,
         headers: {},
-        contentType: _CONTENT_TYPE));
-    _dio!.interceptors.add(PrettyDioLogger(
-      error: true,
-      logPrint: (v) => showDioLog(v.toString()),
-      request: true,
-      requestBody: true,
-      responseBody: true,
-      requestHeader: true,
-    ));
+        contentType: _CONTENT_TYPE))
+      ..interceptors.add(PrettyDioLogger(
+        error: true,
+        logPrint: (v) => showDioLog(v.toString()),
+        request: true,
+        requestBody: true,
+        responseBody: true,
+        requestHeader: true,
+      ));
     return _dio!;
   }
 

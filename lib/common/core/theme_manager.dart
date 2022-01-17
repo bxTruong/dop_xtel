@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:shop_all_fe/common/export_this.dart';
 
 ThemeData appTheme = ThemeManager.getInstance().getTheme();
 
 class ThemeManager {
-  static MaterialColor? _primaryColor;
-
   ThemeData? _themeData = ThemeData(
       brightness: Brightness.light,
-      primaryColor: _primaryColor,
-      primaryColorDark: _primaryColor,
-      primaryColorLight: _primaryColor,
+      primaryColor: ColorResource.primary,
+      primaryColorDark: ColorResource.primary,
+      primaryColorLight: ColorResource.primary,
       cardColor: Colors.white,
-      indicatorColor: _primaryColor,
+      indicatorColor: ColorResource.primary,
       textTheme: TextTheme());
 
   static ThemeManager? _themeManager;
 
   static ThemeManager getInstance() {
-    _primaryColor = Colors.red;
     return _themeManager ??= ThemeManager();
   }
 
