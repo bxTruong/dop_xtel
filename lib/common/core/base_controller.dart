@@ -4,8 +4,13 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:shop_all_fe/common/core/base_function.dart';
+import 'package:shop_all_fe/common/resource/enum_resource.dart';
+import 'package:shop_all_fe/system/model/base_response.dart';
 
 class BaseController extends GetxController {
+  var status = Status.loading.obs;
+  var message = ''.obs;
+
   @override
   Future<void> onInit() async {
     await initialData();
@@ -16,68 +21,22 @@ class BaseController extends GetxController {
     await fetchData();
   }
 
-  Future<void> callData() async {}
+  Future<void> fetchData() async {}
 
-  void refreshToken(DioError exception) {}
+  bool checkError(BaseResponse? baseResponse) {
+    if (baseResponse?.error?.code != 0 && baseResponse?.error?.code != null) {
+      return false;
+    }
+    return true;
+  }
 
-  void forbiddenException(DioError exception) {}
-
-  void notFoundException(DioError exception) {}
-
-  void badRequestException(DioError exception) {}
-
-  void noConnectException() {}
-
-  void timeOutException(DioError exception) {}
-
-  void receiveTimeOutException(DioError exception) {}
-
-  void otherException(DioError exception) {}
-
-  Future<void> fetchData() async {
-    bool hasConnection = await hasConnect();
-    showWarning('Internet connection: ' + hasConnection.toString());
-    if (hasConnection) {
-      try {
-        await callData();
-      } catch (exception) {
-        catchException(exception);
-      }
-    } else {
-      noConnectException();
+  void setStatus(Status s) {
+    if (status.value != Status.error) {
+      status.value = s;
     }
   }
 
-  Future<bool> hasConnect() async {
-    try {
-      final result = await InternetAddress.lookup('google.com');
-      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-        return true;
-      }
-      return false;
-    } on SocketException catch (_) {
-      return false;
-    }
-  }
-
-  void catchException(Object exception) {
-    showError('Exception: ' + exception.toString());
-    if (exception is DioError) {
-      if (exception.response?.statusCode == 401) {
-        refreshToken(exception);
-      } else if (exception.response?.statusCode == 403) {
-        forbiddenException(exception);
-      } else if (exception.response?.statusCode == 404) {
-        notFoundException(exception);
-      } else if (exception.response?.statusCode == 502) {
-        badRequestException(exception);
-      } else if (exception.type == DioErrorType.connectTimeout) {
-        timeOutException(exception);
-      } else if (exception.type == DioErrorType.receiveTimeout) {
-        receiveTimeOutException(exception);
-      } else {
-        otherException(exception);
-      }
-    }
+  void setMessage(String s) {
+    message.value = s;
   }
 }

@@ -3,20 +3,21 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class BaseAppBar extends PreferredSize {
-  String? title;
-  TextStyle? style;
-  List<Widget>? action;
-  Color? backgroundColor;
-  Color? colorIcon;
+  final String? title;
+  final TextStyle? style;
+  final List<Widget>? action;
+  final Color? backgroundColor;
+  final Color? colorIcon;
   double? elevation = 0;
-  bool? isLight;
+  final bool? isLight;
   bool? isLeading = true;
-  Widget? flexibleSpace;
-  Icon? iconLeading;
-  Function? functionLeading;
+  final Widget? flexibleSpace;
+  final Icon? iconLeading;
+  final Function? functionLeading;
   final SystemUiOverlayStyle? systemOverlayStyle;
 
   BaseAppBar({
+    Key? key,
     this.systemOverlayStyle,
     this.title,
     this.style,
@@ -29,7 +30,10 @@ class BaseAppBar extends PreferredSize {
     this.flexibleSpace,
     this.iconLeading,
     this.functionLeading,
-  }) : super(preferredSize: const Size(double.infinity, kToolbarHeight), child: Container());
+  }) : super(
+            key: key,
+            preferredSize: const Size(double.infinity, kToolbarHeight),
+            child: Container());
 
   @override
   Size get preferredSize => const Size(double.infinity, kToolbarHeight);
@@ -48,11 +52,13 @@ class BaseAppBar extends PreferredSize {
       centerTitle: true,
       titleSpacing: 0,
       automaticallyImplyLeading: false,
-      leading: iconLeading ??
-          IconButton(
-              splashRadius: 26,
-              onPressed: () => functionLeading?.call() ?? Get.back(),
-              icon: const Icon(Icons.arrow_back_rounded, size: 26, color: Colors.white)),
+      leading: functionLeading != null
+          ? iconLeading ??
+              IconButton(
+                  splashRadius: 26,
+                  onPressed: () => functionLeading?.call() ?? Get.back(),
+                  icon: const Icon(Icons.arrow_back_rounded, size: 26, color: Colors.white))
+          : const SizedBox(),
       iconTheme: IconThemeData(color: colorIcon),
       actions: action);
 }

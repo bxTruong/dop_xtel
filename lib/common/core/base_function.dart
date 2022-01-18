@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 
 /*
@@ -17,10 +19,8 @@ void showLog(Object message) {
   }
 }
 
-void showError(Object message) {
-  if (kDebugMode) {
-    print('\x1B[31m$message\x1B[0m');
-  }
+void showError(Object? message) {
+  log('', error: message.toString(), name: 'EXCEPTION');
 }
 
 void showWarning(Object message) {

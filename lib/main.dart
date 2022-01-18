@@ -1,7 +1,8 @@
 import 'dart:io';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_all_fe/common/constant.dart';
 import 'package:shop_all_fe/common/core/page_manager/key_page.dart';
 import 'package:shop_all_fe/common/core/page_manager/page_manager.dart';
 import 'package:shop_all_fe/common/export_this.dart';
@@ -16,15 +17,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => GetMaterialApp(
-      supportedLocales: const <Locale>[Locale('vi', 'VN'), Locale('en', 'EN')],
+      supportedLocales: LocalizationService.locales,
       debugShowCheckedModeBanner: false,
-      title: 'Base flutter',
+      title: Constant.app_name,
       locale: LocalizationService.locale,
       fallbackLocale: LocalizationService.fallbackLocale,
+      localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       translations: LocalizationService(),
       initialRoute: KeyPage.initial_page,
       getPages: listPage,
-      theme: theme,
+      theme: appStyle,
       enableLog: true,
       defaultTransition: Transition.size,
       debugShowMaterialGrid: false);

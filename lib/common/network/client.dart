@@ -23,13 +23,12 @@ class Client {
         headers: {},
         contentType: _CONTENT_TYPE))
       ..interceptors.add(PrettyDioLogger(
-        error: true,
-        logPrint: (v) => showDioLog(v.toString()),
-        request: true,
-        requestBody: true,
-        responseBody: true,
-        requestHeader: true,
-      ));
+          error: true,
+          logPrint: _logPrint,
+          request: true,
+          requestBody: true,
+          responseBody: true,
+          requestHeader: true));
     return _dio!;
   }
 
@@ -37,5 +36,9 @@ class Client {
     if (url != null) {
       _BASE_URL = url;
     }
+  }
+
+  static void _logPrint(v) {
+    showDioLog(v);
   }
 }

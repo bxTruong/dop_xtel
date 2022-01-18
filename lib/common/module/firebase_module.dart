@@ -42,7 +42,11 @@ class FirebaseModule {
         onSelectNotification: (s) => onSelectNotification?.call(s));
 
     var generalNotificationDetails = const NotificationDetails(
-        android: AndroidNotificationDetails('1', 'push_notify_channel'),
+        android: AndroidNotificationDetails('1', 'push_notify_channel',
+            channelDescription: 'your channel description',
+            importance: Importance.max,
+            priority: Priority.high,
+            ticker: 'ticker'),
         iOS: IOSNotificationDetails());
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
