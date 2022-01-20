@@ -4,6 +4,7 @@ extension ObjectExtension on dynamic {
   }
 
   bool _isNull() {
+    // showError(this);
     return this == null;
   }
 
@@ -18,9 +19,9 @@ extension ObjectExtension on dynamic {
     return false;
   }
 
-  get isNotNull => _isNotNull();
+  bool get isNotNull => _isNotNull();
 
-  get isNulled => _isNull();
+  bool get isNulled => _isNull();
 
-  get isNotNullBlank => _isNotNullBlank();
+  bool get isNotNullBlank => _isNotNullBlank();
 }

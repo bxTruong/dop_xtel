@@ -9,21 +9,22 @@ import 'package:shop_all_fe/system/repository/user_repository.dart';
 
 class LoginController extends BaseController {
   final _userRepository = UserRepository<LoginController>();
-  var user = UserInformation().obs;
+  Rx<UserInformation?> user = UserInformation().obs;
 
   @override
   Future initialData() async {
     await Future.delayed(const Duration(seconds: 1));
-    fetchData();
+    await fetchData();
   }
 
   @override
   Future<void> fetchData() async {
-    UserInformation? userInformation =
-        await _userRepository.login(SignIn(password: '123456', userName: 'adminap'));
-    if (userInformation.isNulled) return;
-    UserInformation? userInformation1 =
-        await _userRepository.login(SignIn(password: '123456', userName: 'adminap'));
+    var response = await _userRepository.login(SignIn(password: '123456', userName: 'adminapp'));
+    if (response.isNulled) return;
+    user.value = response;
+    setStatus(Status.success);
+    // UserInformation? userInformation1 =
+    //     await _userRepository.login(SignIn(password: '123456', userName: 'adminap'));
   }
 
   void showNotification() {

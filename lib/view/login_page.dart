@@ -13,7 +13,7 @@ class LoginPage extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Obx(
       () => MainView(
-        title: controller.user.value.user?.fullName,
+        title: controller.user.value?.user?.fullName,
         body: BaseView(
           status: controller.status.value,
           content: controller.message.value,
