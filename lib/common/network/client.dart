@@ -25,9 +25,9 @@ class Client {
       ..interceptors.add(PrettyDioLogger(
           error: true,
           logPrint: _logPrint,
-          request: true,
-          requestBody: true,
-          responseBody: true,
+          request: false,
+          requestBody: false,
+          responseBody: false,
           requestHeader: true));
     return _dio!;
   }

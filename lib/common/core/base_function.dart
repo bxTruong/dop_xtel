@@ -20,7 +20,7 @@ void showLog(Object message) {
 }
 
 void showError(Object? message) {
-  log('', error: message.toString(), name: 'EXCEPTION');
+  log('', error: message.toString(), name: 'APP EXCEPTION');
 }
 
 void showWarning(Object message) {

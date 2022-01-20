@@ -30,3 +30,4 @@ export 'resource/color_resource.dart';
 export 'resource/enum_resource.dart';
 export 'package:collection/collection.dart';
 export 'utils.dart';
+export 'extension/object_ext.dart';

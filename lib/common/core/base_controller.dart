@@ -23,13 +23,6 @@ class BaseController extends GetxController {
 
   Future<void> fetchData() async {}
 
-  bool checkError(BaseResponse? baseResponse) {
-    if (baseResponse?.error?.code != 0 && baseResponse?.error?.code != null) {
-      return false;
-    }
-    return true;
-  }
-
   void setStatus(Status s) {
     if (status.value != Status.error) {
       status.value = s;

@@ -19,15 +19,11 @@ class LoginController extends BaseController {
 
   @override
   Future<void> fetchData() async {
-    BaseResponse? baseResponse =
-        await _userRepository.login(SignIn(password: '123456', userName: 'adminapp'));
-    if (!checkError(baseResponse)) {
-      setMessage(baseResponse?.error?.message ?? 'Đã có lỗi xảy ra');
-      setStatus(Status.error);
-      return;
-    }
-    user.value = UserInformation.fromJson(baseResponse?.data);
-    setStatus(Status.success);
+    UserInformation? userInformation =
+        await _userRepository.login(SignIn(password: '123456', userName: 'adminap'));
+    if (userInformation.isNulled) return;
+    UserInformation? userInformation1 =
+        await _userRepository.login(SignIn(password: '123456', userName: 'adminap'));
   }
 
   void showNotification() {
