@@ -13,7 +13,7 @@ class BaseAppBar extends PreferredSize {
   bool? isLeading = true;
   final Widget? flexibleSpace;
   final Icon? iconLeading;
-  final Function? functionLeading;
+  final Function? onLeading;
   final SystemUiOverlayStyle? systemOverlayStyle;
 
   BaseAppBar({
@@ -29,7 +29,7 @@ class BaseAppBar extends PreferredSize {
     this.isLeading,
     this.flexibleSpace,
     this.iconLeading,
-    this.functionLeading,
+    this.onLeading,
   }) : super(
             key: key,
             preferredSize: const Size(double.infinity, kToolbarHeight),
@@ -43,7 +43,7 @@ class BaseAppBar extends PreferredSize {
       systemOverlayStyle: systemOverlayStyle ?? SystemUiOverlayStyle.light,
       title: Text(
         title ?? '',
-        style: style,
+        style: style ?? const TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
         overflow: TextOverflow.ellipsis,
       ),
       flexibleSpace: flexibleSpace ?? Container(),
@@ -52,11 +52,11 @@ class BaseAppBar extends PreferredSize {
       centerTitle: true,
       titleSpacing: 0,
       automaticallyImplyLeading: false,
-      leading: functionLeading != null
+      leading: onLeading != null
           ? iconLeading ??
               IconButton(
                   splashRadius: 26,
-                  onPressed: () => functionLeading?.call() ?? Get.back(),
+                  onPressed: () => onLeading?.call() ?? Get.back(),
                   icon: const Icon(Icons.arrow_back_rounded, size: 26, color: Colors.white))
           : const SizedBox(),
       iconTheme: IconThemeData(color: colorIcon),

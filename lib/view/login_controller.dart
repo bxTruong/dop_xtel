@@ -1,13 +1,15 @@
 import 'package:shop_all_fe/common/constant.dart';
-import 'package:shop_all_fe/common/core/base_controller.dart';
+import 'package:get/get.dart';
 import 'package:shop_all_fe/common/export_this.dart';
 import 'package:shop_all_fe/common/module/notification_module.dart';
 import 'package:shop_all_fe/system/model/base_response.dart';
 import 'package:shop_all_fe/system/model/sign_in.dart';
+import 'package:shop_all_fe/system/model/user_information.dart';
 import 'package:shop_all_fe/system/repository/user_repository.dart';
 
 class LoginController extends BaseController {
   final _userRepository = UserRepository<LoginController>();
+  var user = UserInformation().obs;
 
   @override
   Future initialData() async {
@@ -24,6 +26,7 @@ class LoginController extends BaseController {
       setStatus(Status.error);
       return;
     }
+    user.value = UserInformation.fromJson(baseResponse?.data);
     setStatus(Status.success);
   }
 

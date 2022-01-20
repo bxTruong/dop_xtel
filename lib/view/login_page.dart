@@ -13,7 +13,7 @@ class LoginPage extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Obx(
       () => MainView(
-        title: 'Thí nghiệm',
+        title: controller.user.value.user?.fullName,
         body: BaseView(
           status: controller.status.value,
           content: controller.message.value,
@@ -25,11 +25,12 @@ class LoginPage extends GetView<LoginController> {
                   style: appStyle.textTheme.headline1,
                 ),
                 TextButton(
-                    onPressed: controller.showNotification,
-                    child: Text(
-                      'Click me',
-                      style: appStyle.textTheme.headline4,
-                    ))
+                  onPressed: controller.showNotification,
+                  child: Text(
+                    'Click me',
+                    style: appStyle.textTheme.headline4,
+                  ),
+                )
               ],
             ),
           ),
