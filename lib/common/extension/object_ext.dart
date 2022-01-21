@@ -4,7 +4,6 @@ extension ObjectExtension on dynamic {
   }
 
   bool _isNull() {
-    // showError(this);
     return this == null;
   }
 

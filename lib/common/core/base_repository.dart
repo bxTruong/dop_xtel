@@ -72,12 +72,12 @@ class BaseRepository<T extends BaseController> {
 
   void setStatus(Status s) {
     final controller = Get.find<T>();
-    controller.status.value = s;
+    controller.setStatus(Status.error);
   }
 
   void setMessage(String? s) {
     final controller = Get.find<T>();
-    controller.message.value = s ?? Constant.unknown;
+    controller.setMessage(s ?? Constant.unknown);
   }
 
   bool catchServerError(BaseResponse? baseResponse) {

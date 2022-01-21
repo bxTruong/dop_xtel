@@ -1,8 +1,7 @@
-import 'package:shop_all_fe/common/constant.dart';
 import 'package:get/get.dart';
+import 'package:shop_all_fe/common/constant.dart';
 import 'package:shop_all_fe/common/export_this.dart';
 import 'package:shop_all_fe/common/module/notification_module.dart';
-import 'package:shop_all_fe/system/model/base_response.dart';
 import 'package:shop_all_fe/system/model/sign_in.dart';
 import 'package:shop_all_fe/system/model/user_information.dart';
 import 'package:shop_all_fe/system/repository/user_repository.dart';
