@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_all_fe/common/core/widget/base_appbar.dart';
 import 'package:flutter/foundation.dart';
+import 'package:shop_all_fe/common/export_this.dart';
 
 class MainView extends StatelessWidget {
   String? title;
@@ -19,6 +20,7 @@ class MainView extends StatelessWidget {
 
   Future<bool> onWillPop() async {
     onLeading?.call();
+    Utils.hideKeyboard();
     return true;
   }
 
