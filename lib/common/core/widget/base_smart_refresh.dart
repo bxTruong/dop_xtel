@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:dop_xtel/common/core/language/key_language.dart';
-import 'package:dop_xtel/common/export_this.dart';
+import 'package:shop_all_fe/common/core/language/key_language.dart';
+import 'package:shop_all_fe/common/export_this.dart';
 
 //pull_to_refresh: ^2.0.0
 class BaseSmartRefresh extends StatelessWidget {
@@ -29,7 +29,7 @@ class BaseSmartRefresh extends StatelessWidget {
             ? Center(
                 child: Text(
                   KeyLanguage.empty.tr,
-                  style: appTheme.textTheme.bodyText1,
+                  style: appStyle.textTheme.bodyText1,
                 ),
               )
             : const SizedBox(width: 0, height: 0),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_all_fe/common/core/base_appbar.dart';
+import 'package:shop_all_fe/common/core/widget/base_appbar.dart';
 import 'package:flutter/foundation.dart';
 
 class MainView extends StatelessWidget {

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shop_all_fe/common/core/base_error_dialog.dart';
-import 'package:shop_all_fe/common/core/base_indicator.dart';
+
 import 'package:shop_all_fe/common/resource/enum_resource.dart';
+
+import 'base_error_dialog.dart';
+import 'base_indicator.dart';
 
 class BaseView extends StatelessWidget {
   final Status? status;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_all_fe/common/core/base_view.dart';
-import 'package:shop_all_fe/common/core/main_view.dart';
+import 'package:shop_all_fe/common/core/widget/base_view.dart';
+import 'package:shop_all_fe/common/core/widget/main_view.dart';
 import 'package:shop_all_fe/common/core/theme_manager.dart';
 import 'package:shop_all_fe/view/login_controller.dart';
 
