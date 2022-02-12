@@ -32,8 +32,10 @@ abstract class BaseView<T extends BaseController> extends GetWidget<T> {
 
   Widget buildError() => BaseErrorDialog(content: content, showConfirm: false);
 
+  // CircularProgressBar thay thế view (Không nhìn thấy view)
   Widget buildLoading() => const BaseIndicator();
 
+  // CircularProgressBar đè lên trên view (View hiện mờ ở đằng sau)
   Widget buildWaiting() => Stack(
         children: [
           onSuccess ?? Container(),
