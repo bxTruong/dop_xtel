@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:shop_all_fe/common/resource/enum_resource.dart';
 
 class BaseController extends GetxController {
-  var status = Status.loading.obs;
+  Rx<Status> status = Status.loading.obs;
   var message = ''.obs;
 
   @override

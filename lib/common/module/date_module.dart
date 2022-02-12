@@ -28,4 +28,12 @@ class DateModule {
       showError(exception.toString());
     }
   }
+
+  static DateTime? dToD(DateTime data, String fromPattern, String toPattern) {
+    try {
+      return parse(format(data, fromPattern) ?? '', toPattern);
+    } catch (exception) {
+      showError(exception.toString());
+    }
+  }
 }

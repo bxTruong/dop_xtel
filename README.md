@@ -1,6 +1,6 @@
-# base_flutter
+# Base Flutter
 
-A base Flutter project.
+A base of project.
 
 ## Getting Started
 
