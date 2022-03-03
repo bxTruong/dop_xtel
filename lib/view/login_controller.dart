@@ -12,15 +12,15 @@ class LoginController extends BaseController {
 
   @override
   Future initialData() async {
-    await Future.delayed(const Duration(seconds: 10));
+    await Future.delayed(const Duration(seconds: 1));
     await fetchData();
   }
 
   @override
   Future<void> fetchData() async {
-    var response = await _userRepository.login(SignIn(password: '123456', userName: 'adminapp'));
-    if (response.isNulled) return;
-    user.value = response;
+    // var response = await _userRepository.login(SignIn(password: '123456', userName: 'adminapp'));
+    // if (response.isNulled) return;
+    // user.value = response;
     setStatus(Status.success);
     // UserInformation? userInformation1 =
     //     await _userRepository.login(SignIn(password: '123456', userName: 'adminap'));

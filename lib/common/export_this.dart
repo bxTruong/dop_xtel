@@ -36,3 +36,4 @@ export 'resource/image_resource.dart';
 export 'package:collection/collection.dart';
 export 'utils.dart';
 export 'extension/object_ext.dart';
+export 'package:dotted_decoration/dotted_decoration.dart';
