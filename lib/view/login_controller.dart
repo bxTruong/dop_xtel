@@ -6,6 +6,7 @@ import 'package:shop_all_fe/system/model/sign_in.dart';
 import 'package:shop_all_fe/system/model/user_information.dart';
 import 'package:shop_all_fe/system/repository/user_repository.dart';
 
+
 class LoginController extends BaseController {
   final _userRepository = UserRepository<LoginController>();
   Rx<UserInformation?> user = UserInformation().obs;

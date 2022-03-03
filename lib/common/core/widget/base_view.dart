@@ -23,7 +23,7 @@ abstract class BaseView<T extends BaseController> extends GetWidget<T> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(() => body()),
+      body: SafeArea(child: Obx(() => body())),
       backgroundColor: Colors.white,
     );
   }
@@ -55,7 +55,8 @@ abstract class BaseView<T extends BaseController> extends GetWidget<T> {
       case Status.error:
         return _buildError();
       case Status.noConnection:
-        return onFail ?? BaseErrorDialog(content: content, textButtonConfirm: 'Thử lại');
+        return onFail ??
+            BaseErrorDialog(content: content, textButtonConfirm: 'Thử lại');
       case Status.loading:
         return _buildLoading();
       case Status.waiting:

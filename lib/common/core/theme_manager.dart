@@ -28,8 +28,8 @@ class ThemeManager {
       headline3: TextStyle(fontWeight: FontWeight.w900, color: ColorResource.primary, fontSize: 20),
       headline2: TextStyle(fontWeight: FontWeight.w900, color: ColorResource.primary, fontSize: 22),
       headline1: TextStyle(fontWeight: FontWeight.w900, color: ColorResource.primary, fontSize: 24),
-      bodyText1: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey, fontSize: 14),
-      bodyText2: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey, fontSize: 16),
+      bodyText1: TextStyle(fontWeight: FontWeight.w400, color: Colors.black54, fontSize: 14),
+      bodyText2: TextStyle(fontWeight: FontWeight.w400, color: Colors.black54, fontSize: 16),
     ),
   );
 
