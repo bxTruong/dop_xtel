@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class BaseTextFormField extends StatelessWidget {
+ class BaseTextFormField extends StatelessWidget {
   final TextEditingController editingController;
   final Function(String value)? onChange;
   final bool? readOnly;
@@ -29,6 +29,9 @@ abstract class BaseTextFormField extends StatelessWidget {
       readOnly: readOnly ?? false,
       enabled: enable ?? true,
       keyboardType: textInputType ?? TextInputType.text,
+      decoration: InputDecoration(
+        hintText:
+      ),
       onChanged: (value) {
         onChange?.call(value);
       },
