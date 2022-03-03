@@ -15,7 +15,9 @@ class BaseController extends GetxController {
     await fetchData();
   }
 
-  Future<void> fetchData() async {}
+  Future<void> fetchData() async {
+
+  }
 
   void setStatus(Status s) {
     status.value = s;
@@ -25,3 +27,4 @@ class BaseController extends GetxController {
     message.value = s;
   }
 }
+

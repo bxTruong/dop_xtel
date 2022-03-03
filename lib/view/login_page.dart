@@ -1,17 +1,10 @@
-import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_all_fe/common/core/widget/base_image.dart';
-import 'package:shop_all_fe/common/core/widget/base_indicator.dart';
-import 'package:shop_all_fe/common/core/widget/button/base_elevate_button.dart';
-import 'package:shop_all_fe/common/core/widget/base_ink_well.dart';
-import 'package:shop_all_fe/common/core/widget/base_view.dart';
-import 'package:shop_all_fe/common/core/widget/button/base_outlined_button.dart';
-import 'package:shop_all_fe/common/core/widget/button/base_text_button.dart';
 import 'package:shop_all_fe/common/core/widget/main_view.dart';
-import 'package:shop_all_fe/common/core/theme_manager.dart';
-import 'package:shop_all_fe/common/resource/image_resource.dart';
-import 'package:shop_all_fe/view/login_controller.dart';
+import 'package:shop_all_fe/common/export_this.dart';
+
+import 'login_controller.dart';
+
 
 class LoginPage extends GetView<LoginController> {
   LoginPage({Key? key}) : super(key: key);
