@@ -14,7 +14,7 @@ class ThemeManager {
     indicatorColor: ColorResource.primary,
     splashColor: ColorResource.colorSplash,
     highlightColor: ColorResource.colorHighLight,
-    hintColor: Colors.yellow,
+    hintColor: ColorResource.colorHintText,
     // màu background
     //canvasColor: Colors.yellow,
     dividerColor: Colors.blueGrey,

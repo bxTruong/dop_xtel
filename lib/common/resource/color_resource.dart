@@ -9,4 +9,6 @@ class ColorResource {
   static  Color colorSplash = primarySwatch.withAlpha(100);
   // color effect background của Inkwell
   static  Color colorHighLight= primarySwatch.withAlpha(50);
+
+  static const Color colorHintText= Color(0xffa8a8a8);
 }

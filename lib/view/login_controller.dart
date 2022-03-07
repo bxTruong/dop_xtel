@@ -1,8 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shop_all_fe/common/constant.dart';
 import 'package:shop_all_fe/common/export_this.dart';
 import 'package:shop_all_fe/common/module/notification_module.dart';
-import 'package:shop_all_fe/system/model/sign_in.dart';
 import 'package:shop_all_fe/system/model/user_information.dart';
 import 'package:shop_all_fe/system/repository/user_repository.dart';
 
@@ -10,6 +10,8 @@ import 'package:shop_all_fe/system/repository/user_repository.dart';
 class LoginController extends BaseController {
   final _userRepository = UserRepository<LoginController>();
   Rx<UserInformation?> user = UserInformation().obs;
+  var ted1=TextEditingController();
+  var ted2=TextEditingController();
 
   @override
   Future initialData() async {

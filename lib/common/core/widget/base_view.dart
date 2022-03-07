@@ -23,12 +23,12 @@ abstract class BaseView<T extends BaseController> extends GetWidget<T> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: Obx(() => body())),
+      body: SafeArea(child: Obx(() => body(context))),
       backgroundColor: Colors.white,
     );
   }
 
-  Widget buildSuccess();
+  Widget buildSuccess(BuildContext context);
 
   Widget buildError() => BaseErrorDialog(content: content, showConfirm: false);
 
@@ -50,42 +50,42 @@ abstract class BaseView<T extends BaseController> extends GetWidget<T> {
     return status ?? Get.find<T>().status.value;
   }
 
-  Widget body() {
+  Widget body(BuildContext context) {
     switch (_getStatus()) {
       case Status.error:
-        return _buildError();
+        return _buildError(context);
       case Status.noConnection:
         return onFail ??
             BaseErrorDialog(content: content, textButtonConfirm: 'Thử lại');
       case Status.loading:
-        return _buildLoading();
+        return _buildLoading(context);
       case Status.waiting:
-        return _buildWaiting();
+        return _buildWaiting(context);
       default:
-        return _buildSuccess();
+        return _buildSuccess(context);
     }
   }
 
-  Widget _buildSuccess() {
+  Widget _buildSuccess(BuildContext context) {
     if (onSuccess != null) return onSuccess ?? Container();
-    return buildSuccess();
+    return buildSuccess(context);
   }
 
-  Widget _buildError() {
+  Widget _buildError(BuildContext context) {
     if (onFail != null) {
       return onFail ?? BaseErrorDialog(content: content, showConfirm: false);
     }
     return buildError();
   }
 
-  Widget _buildLoading() {
+  Widget _buildLoading(BuildContext context) {
     if (onLoading != null) {
       return onLoading ?? const BaseIndicator();
     }
     return buildLoading();
   }
 
-  Widget _buildWaiting() {
+  Widget _buildWaiting(BuildContext context) {
     if (onWaiting != null) {
       return Stack(
         children: [
