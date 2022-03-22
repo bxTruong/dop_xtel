@@ -2,12 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_all_fe/common/core/page_manager/key_page.dart';
-import 'package:shop_all_fe/common/core/page_manager/page_manager.dart';
-import 'package:shop_all_fe/common/core/theme_manager.dart';
-import 'package:shop_all_fe/common/export_this.dart';
-import 'package:web_socket_channel/io.dart';
-import 'common/core/language/localization_service.dart';
+import 'package:app_shopee_lite/common/core/page_manager/key_page.dart';
+import 'package:app_shopee_lite/common/core/page_manager/page_manager.dart';
+
+import 'package:app_shopee_lite/common/export_this.dart';
 
 Future<void> main() async {
   // Dart client
@@ -23,13 +21,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => GetMaterialApp(
       supportedLocales: const <Locale>[Locale('vi', 'VN'), Locale('en', 'EN')],
       debugShowCheckedModeBanner: false,
-      title: 'Base flutter',
+      title: 'Shopee lite',
       locale: LocalizationService.locale,
       fallbackLocale: LocalizationService.fallbackLocale,
       translations: LocalizationService(),
       initialRoute: KeyPage.initial_page,
       getPages: listPage,
-      theme: theme,
+      theme: appTheme,
       enableLog: true,
       defaultTransition: Transition.size,
       debugShowMaterialGrid: false);

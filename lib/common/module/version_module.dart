@@ -1,5 +1,5 @@
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:shop_all_fe/common/core/base_function.dart';
+import 'package:app_shopee_lite/common/core/base_function.dart';
 
 // package_info_plus: ^1.0.6
 class VersionModule {

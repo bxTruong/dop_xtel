@@ -1,10 +1,9 @@
 import 'dart:io';
 
+import 'package:app_shopee_lite/common/resource/color_resource.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:shop_all_fe/common/resource/color_resource.dart';
 
 class BaseIndicator extends StatelessWidget {
   const BaseIndicator({Key? key}) : super(key: key);

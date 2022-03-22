@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop_all_fe/common/core/base_button.dart';
-import 'package:shop_all_fe/common/core/language/key_language.dart';
+import 'package:app_shopee_lite/common/core/base_button.dart';
+import 'package:app_shopee_lite/common/core/language/key_language.dart';
 import 'package:get/get.dart';
 
 class BaseErrorDialog extends StatelessWidget {

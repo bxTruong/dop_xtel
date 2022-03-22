@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:shop_all_fe/common/core/base_function.dart';
+import 'package:app_shopee_lite/common/core/base_function.dart';
 
 class BaseController extends GetxController {
   Map<String, dynamic> parameters = HashMap();

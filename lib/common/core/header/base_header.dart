@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_all_fe/common/core/base_image.dart';
-import 'package:shop_all_fe/common/core/header/base_header_controller.dart';
-import 'package:shop_all_fe/common/export_this.dart';
+import 'package:app_shopee_lite/common/core/base_image.dart';
+import 'package:app_shopee_lite/common/core/header/base_header_controller.dart';
+import 'package:app_shopee_lite/common/export_this.dart';
 
 class BaseHeader extends GetWidget<BaseHeaderController> {
   final _controller = Get.lazyPut(() => BaseHeaderController());

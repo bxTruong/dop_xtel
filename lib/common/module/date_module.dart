@@ -1,5 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:shop_all_fe/common/core/base_function.dart';
+import 'package:app_shopee_lite/common/core/base_function.dart';
 
 class DateModule {
   static const String DDMMYYYYHMS = 'dd/MM/yyyy HH:mm:ss';

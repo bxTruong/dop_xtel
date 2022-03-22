@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:shop_all_fe/common/core/base_function.dart';
+import 'package:app_shopee_lite/common/core/base_function.dart';
 
 class BaseRefreshController {
   RefreshController? controller;

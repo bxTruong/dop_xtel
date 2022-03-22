@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_all_fe/common/core/base_function.dart';
+import 'package:app_shopee_lite/common/core/base_function.dart';
 
 const int largeScreenSize = 1366;
 const int mediumScreenSize = 768;

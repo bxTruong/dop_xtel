@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-ThemeData theme = ThemeManager.getInstance().getTheme();
+ThemeData appTheme = ThemeManager.getInstance().getTheme();
 
 class ThemeManager {
   static MaterialColor? _primaryColor;

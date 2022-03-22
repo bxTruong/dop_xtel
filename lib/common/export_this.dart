@@ -12,7 +12,6 @@ export 'core/base_appbar.dart';
 export 'core/base_button.dart';
 export 'core/base_controller.dart';
 export 'core/base_error_dialog.dart';
-export 'core/base_footer.dart';
 export 'core/base_function.dart';
 export 'core/base_image.dart';
 export 'core/base_image_colection.dart';
