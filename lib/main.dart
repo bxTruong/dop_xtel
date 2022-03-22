@@ -1,11 +1,14 @@
 import 'dart:io';
-import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'package:app_shopee_lite/common/constant.dart';
+import 'package:app_shopee_lite/common/core/page_manager/key_page.dart';
+import 'package:app_shopee_lite/common/core/page_manager/page_manager.dart';
+import 'package:app_shopee_lite/common/core/theme_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'package:shop_all_fe/common/constant.dart';
-import 'package:shop_all_fe/common/core/page_manager/key_page.dart';
-import 'package:shop_all_fe/common/core/page_manager/page_manager.dart';
-import 'package:shop_all_fe/common/export_this.dart';
+import 'package:web_socket_channel/io.dart';
+import 'common/core/language/localization_service.dart';
 
 Future<void> main() async {
   HttpOverrides.global = new MyHttpOverrides();
@@ -30,7 +33,7 @@ class MyApp extends StatelessWidget {
       translations: LocalizationService(),
       initialRoute: KeyPage.initial_page,
       getPages: listPage,
-      theme: appStyle,
+      theme: appTheme,
       enableLog: true,
       defaultTransition: Transition.size,
       debugShowMaterialGrid: false);

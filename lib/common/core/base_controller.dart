@@ -1,5 +1,9 @@
+import 'dart:collection';
+import 'dart:io';
+
+import 'package:app_shopee_lite/common/resource/enum_resource.dart';
+import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:shop_all_fe/common/resource/enum_resource.dart';
 
 class BaseController extends GetxController {
   Rx<Status> status = Status.loading.obs;

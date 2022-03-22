@@ -1,4 +1,4 @@
-import 'package:dotted_decoration/dotted_decoration.dart';
+
 import 'package:flutter/material.dart';
 
 class BaseInkWell extends StatelessWidget {
@@ -25,7 +25,7 @@ class BaseInkWell extends StatelessWidget {
   // dash: <int>[1, 4],
   // borderRadius: BorderRadius.circular(10),
   // );
-  final DottedDecoration? dottedDecoration;
+
   final Border? border;
 
   const BaseInkWell({
@@ -39,7 +39,6 @@ class BaseInkWell extends StatelessWidget {
     this.borderRadiusValue,
     this.style,
     this.paddingValue,
-    this.dottedDecoration,
     this.border,
     this.titleFontWeight,
     this.titleSize,
@@ -52,7 +51,7 @@ class BaseInkWell extends StatelessWidget {
       shape: border,
       borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
       child: Container(
-        decoration: dottedDecoration,
+
         child: InkWell(
           onTap: onTab,
           borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),

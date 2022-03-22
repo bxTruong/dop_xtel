@@ -1,7 +1,7 @@
+import 'package:app_shopee_lite/common/export_this.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_all_fe/common/export_this.dart';
 
-ThemeData appStyle = ThemeManager.getInstance().getTheme();
+ThemeData appTheme = ThemeManager.getInstance().getTheme();
 
 class ThemeManager {
   ThemeData? _themeData = ThemeData(
@@ -12,15 +12,10 @@ class ThemeManager {
     primaryColorLight: ColorResource.primary,
     cardColor: Colors.white,
     indicatorColor: ColorResource.primary,
-    splashColor: ColorResource.colorSplash,
-    highlightColor: ColorResource.colorHighLight,
-    hintColor: ColorResource.colorHintText,
-    // màu background
     //canvasColor: Colors.yellow,
     dividerColor: Colors.blueGrey,
     toggleableActiveColor: Colors.red,
-    // màu appbar, button, effect mặc định
-    primarySwatch: ColorResource.primarySwatch,
+
     textTheme: const TextTheme(
       headline6: TextStyle(fontWeight: FontWeight.w900, color: ColorResource.primary, fontSize: 14),
       headline5: TextStyle(fontWeight: FontWeight.w900, color: ColorResource.primary, fontSize: 16),

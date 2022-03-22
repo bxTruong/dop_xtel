@@ -1,5 +1,5 @@
+import 'package:app_shopee_lite/common/export_this.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_all_fe/common/export_this.dart';
 
 @immutable
 class BaseTextFormField extends StatelessWidget {
@@ -140,7 +140,7 @@ class BaseTextFormField extends StatelessWidget {
                 ? focusedBorder ??
                     OutlineInputBorder(
                       borderSide: const BorderSide(
-                          width: 1, color: ColorResource.primarySwatch),
+                          width: 1, color: ColorResource.primary),
                       borderRadius: BorderRadius.all(
                         Radius.circular(borderRadius ?? 8),
                       ),

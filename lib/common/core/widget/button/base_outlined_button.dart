@@ -1,5 +1,5 @@
+import 'package:app_shopee_lite/common/resource/color_resource.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_all_fe/common/resource/color_resource.dart';
 
 class BaseOutlinedButton extends StatelessWidget {
   final String? title;
@@ -53,7 +53,7 @@ class BaseOutlinedButton extends StatelessWidget {
         style: buttonStyleValue ??
             OutlinedButton.styleFrom(
               side: BorderSide(
-                  color: colorBorderValue ?? ColorResource.primarySwatch),
+                  color: colorBorderValue ?? ColorResource.primary),
               primary: primaryColorValue,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),

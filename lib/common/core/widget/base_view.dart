@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_all_fe/common/export_this.dart';
+
+import '../../resource/enum_resource.dart';
+import '../base_controller.dart';
+import 'base_error_dialog.dart';
+import 'base_indicator.dart';
 
 abstract class BaseView<T extends BaseController> extends GetWidget<T> {
   final Status? status;

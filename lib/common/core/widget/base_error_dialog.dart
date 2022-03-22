@@ -1,58 +1,60 @@
+import 'package:app_shopee_lite/common/core/theme_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:dop_xtel/common/core/base_button.dart';
-import 'package:dop_xtel/common/core/language/key_language.dart';
-import 'package:get/get.dart';
 
 class BaseErrorDialog extends StatelessWidget {
   final String? title;
-  final TextStyle? style;
+  final String? content;
+  final String? textButtonConfirm;
+  final String? textButtonCancel;
+  final bool? showConfirm;
+  final bool? showCancel;
   final Function? mConfirm;
   final Function? mCancel;
 
-  const BaseErrorDialog({Key? key, this.title, this.style, this.mConfirm, this.mCancel})
+  const BaseErrorDialog(
+      {Key? key,
+      this.title,
+      this.mConfirm,
+      this.mCancel,
+      this.showCancel,
+      this.showConfirm,
+      this.content,
+      this.textButtonCancel,
+      this.textButtonConfirm})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: Colors.white,
-        ),
-        child: Column(
-          children: [
-            Container(
-                constraints: const BoxConstraints(minHeight: 200),
-                padding: const EdgeInsets.all(8.0),
-                child: Text(title ?? '', style: style)),
-            Row(
-              children: [
-                Expanded(
-                  child: BaseButton(
-                      onTab: () => mConfirm?.call() ?? onConfirm(),
-                      title: KeyLanguage.ok.tr,
-                      titleColor: Colors.red),
+    return AlertDialog(
+      title: Text(title ?? 'Thông báo'.toUpperCase(), style: appTheme.textTheme.headline3),
+      content: Text(content ?? '', style: appTheme.textTheme.bodyText1),
+      insetPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      actions: [
+        showConfirm ?? true
+            ? TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  mConfirm?.call();
+                },
+                child: Text(
+                  textButtonConfirm ?? 'Đồng ý',
+                  style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 16),
                 ),
-                Expanded(
-                  child: BaseButton(
-                      onTab: () => mCancel?.call() ?? onCancel(),
-                      title: KeyLanguage.cancel.tr,
-                      titleColor: Colors.grey),
-                )
-              ],
-            )
-          ],
-        ),
-      ),
+              )
+            : const SizedBox(),
+        showCancel ?? true
+            ? TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  mCancel?.call();
+                },
+                child: Text(
+                  textButtonCancel ?? 'Hủy',
+                  style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 16),
+                ),
+              )
+            : const SizedBox(),
+      ],
     );
-  }
-
-  void onCancel() {
-    Get.back();
-  }
-
-  void onConfirm() {
-    Get.back();
   }
 }

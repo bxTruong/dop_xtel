@@ -1,8 +1,9 @@
+import 'package:app_shopee_lite/common/core/sys/base_option_dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:shop_all_fe/common/core/sys/base_option_dropdown.dart';
+
 
 import '../../export_this.dart';
 
@@ -171,7 +172,7 @@ class DropdownCustom extends StatelessWidget {
                 ? focusedBorder ??
                     OutlineInputBorder(
                       borderSide: const BorderSide(
-                          width: 1, color: ColorResource.primarySwatch),
+                          width: 1, color: Colors.white),
                       borderRadius: BorderRadius.all(
                         Radius.circular(borderRadius ?? 8),
                       ),
