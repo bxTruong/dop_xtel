@@ -100,6 +100,10 @@ class LoginPage extends BaseView<LoginController> {
                 onTapCallBack:(value, index){
                   print('${value.name} $index');
                 } ,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(80.0),
+                child: BaseImage.svg(path: ImageResource.abc3,width: 100,height: 100),
               )
             ],
           ),

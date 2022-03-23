@@ -10,21 +10,22 @@ class BaseImage {
     double? width,
     double? height,
     double? borderRadiusValue,
-    EdgeInsetsGeometry? paddingValue,
+    EdgeInsetsGeometry? padding,
+    Color? color,
   }) {
     return Container(
       width: width,
       height: height,
-      padding: paddingValue,
+      padding: padding,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
-        color: Colors.red,
+        color: color,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
         child: Image.file(
           File(path),
-          fit: boxFit ?? BoxFit.cover,
+          fit: boxFit ?? BoxFit.contain,
         ),
       ),
     );
@@ -36,16 +37,16 @@ class BaseImage {
     double? width,
     double? height,
     double? borderRadiusValue,
-    EdgeInsetsGeometry? paddingValue,
+    EdgeInsetsGeometry? padding,
     Color? color,
   }) {
     return Container(
       width: width,
       height: height,
-      padding: paddingValue,
+      padding: padding,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
-        color: Colors.red,
+        color: color,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
@@ -65,21 +66,21 @@ class BaseImage {
     double? height,
     double? borderRadiusValue,
     Color? color,
-    EdgeInsetsGeometry? paddingValue,
+    EdgeInsetsGeometry? padding,
   }) {
     return Container(
       width: width,
       height: height,
-      padding: paddingValue,
+      padding: padding,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
-        color: Colors.red,
+        color: color,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
         child: SvgPicture.asset(
           path,
-          fit: boxFit ?? BoxFit.cover,
+          fit: boxFit ?? BoxFit.contain,
           color: color,
         ),
       ),
@@ -93,12 +94,12 @@ class BaseImage {
     double? height,
     double? borderRadiusValue,
     Color? color,
-    EdgeInsetsGeometry? paddingValue,
+    EdgeInsetsGeometry? padding,
   }) {
     return Container(
       width: width,
       height: height,
-      padding: paddingValue,
+      padding: padding,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
         color: Colors.red,
@@ -107,7 +108,7 @@ class BaseImage {
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
         child: Image.network(
           path,
-          fit: boxFit ?? BoxFit.cover,
+          fit: boxFit ?? BoxFit.contain,
           errorBuilder: (context, exception, stackTrace) =>
               const Icon(Icons.collections_rounded, color: Colors.grey),
           loadingBuilder: (BuildContext ctx, Widget? child,
