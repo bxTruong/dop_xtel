@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:dop_xtel/draw/draw.dart';
 import 'package:dop_xtel/draw/draw_hint.dart';
 import 'package:dop_xtel/view/draw_componet.dart';
 import 'package:dop_xtel/view/main_game_controller.dart';
