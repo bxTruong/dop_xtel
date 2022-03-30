@@ -1,6 +1,6 @@
-# dop_xtel
+# base_flutter
 
-A new Flutter project.
+A base Flutter project.
 
 ## Getting Started
 
