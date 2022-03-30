@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:app_shopee_lite/common/core/page_manager/key_page.dart';
-import 'package:app_shopee_lite/common/core/page_manager/page_manager.dart';
+import 'package:dop_xtel/common/core/page_manager/key_page.dart';
+import 'package:dop_xtel/common/core/page_manager/page_manager.dart';
 
-import 'package:app_shopee_lite/common/export_this.dart';
+import 'package:dop_xtel/common/export_this.dart';
 
 Future<void> main() async {
   // Dart client

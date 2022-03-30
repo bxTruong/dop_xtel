@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:app_shopee_lite/common/core/base_error_dialog.dart';
-import 'package:app_shopee_lite/common/core/base_indicator.dart';
-import 'package:app_shopee_lite/common/resource/enum_resource.dart';
+import 'package:dop_xtel/common/core/base_error_dialog.dart';
+import 'package:dop_xtel/common/core/base_indicator.dart';
+import 'package:dop_xtel/common/resource/enum_resource.dart';
 import 'package:get/get.dart';
 
 class BaseView extends StatelessWidget {

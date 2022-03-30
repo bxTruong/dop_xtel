@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:app_shopee_lite/common/export_this.dart';
-import 'package:app_shopee_lite/common/network/service.dart';
+import 'package:dop_xtel/common/export_this.dart';
+import 'package:dop_xtel/common/network/service.dart';
 
 class Client {
   static String _BASE_URL = 'https://api.clinic.vietsing.xteldev.com/app';

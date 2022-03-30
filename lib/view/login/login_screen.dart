@@ -1,4 +1,4 @@
-import 'package:app_shopee_lite/view/login/login_controller.dart';
+import 'package:dop_xtel/view/login/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

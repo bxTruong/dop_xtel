@@ -5,7 +5,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:app_shopee_lite/common/core/base_function.dart';
+import 'package:dop_xtel/common/core/base_function.dart';
 
 /*
  * firebase_messaging: ^11.2.4

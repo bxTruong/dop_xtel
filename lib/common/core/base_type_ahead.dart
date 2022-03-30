@@ -1,7 +1,7 @@
 // Do Manh Tai - 04-08-2021/08/2021
 
-import 'package:app_shopee_lite/common/core/theme_manager.dart';
-import 'package:app_shopee_lite/common/export_this.dart';
+import 'package:dop_xtel/common/core/theme_manager.dart';
+import 'package:dop_xtel/common/export_this.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:get/get.dart';

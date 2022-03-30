@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:app_shopee_lite/common/core/base_function.dart';
+import 'package:dop_xtel/common/core/base_function.dart';
 
 class BaseController extends GetxController {
   Map<String, dynamic> parameters = HashMap();
@@ -91,5 +91,11 @@ class BaseController extends GetxController {
 
   Object getBody() {
     return Object();
+  }
+
+  void setMessage(dynamic s){
+
+  }void setStatus(dynamic s){
+
   }
 }

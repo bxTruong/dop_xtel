@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:app_shopee_lite/common/core/language/key_language.dart';
-import 'package:app_shopee_lite/common/export_this.dart';
+import 'package:dop_xtel/common/core/language/key_language.dart';
+import 'package:dop_xtel/common/export_this.dart';
 
 //pull_to_refresh: ^2.0.0
 class BaseSmartRefresh extends StatelessWidget {

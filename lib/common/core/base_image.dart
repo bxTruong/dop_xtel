@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:app_shopee_lite/common/export_this.dart';
+import 'package:dop_xtel/common/export_this.dart';
 
 class BaseImage {
   static Widget storage(
