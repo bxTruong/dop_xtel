@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:app_shopee_lite/common/constant.dart';
-import 'package:app_shopee_lite/common/core/sys/base_response.dart';
-import 'package:app_shopee_lite/common/export_this.dart';
+import 'package:dop_xtel/common/constant.dart';
+import 'package:dop_xtel/common/core/sys/base_response.dart';
+import 'package:dop_xtel/common/export_this.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:collection';
 import 'dart:io';
 
-import 'package:app_shopee_lite/common/resource/enum_resource.dart';
+import 'package:dop_xtel/common/resource/enum_resource.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 

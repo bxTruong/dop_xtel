@@ -1,15 +1,18 @@
 import 'dart:convert';
 
 import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
 
 class HiveModule {
   static const String boxName = 'local.data';
 
-  static void install() {
-    Hive.openBox(boxName);
+  static Future<void> install() async {
+    var dir = await getApplicationDocumentsDirectory();
+    Hive.init(dir.path);
+    await Hive.openBox(boxName);
   }
 
-  static void putValue(String key, dynamic value) async {
+  static Future<void> putValue(String key, dynamic value) async {
     final Box box = Hive.box(boxName);
 
     switch (value) {
@@ -28,7 +31,7 @@ class HiveModule {
   static dynamic getValue(String key, dynamic defaultValue) {
     final Box box = Hive.box(boxName);
     if (!box.containsKey(key)) {
-      throw '$boxName don\'t has $key. Please check $key again';
+      return null;
     }
     switch (defaultValue) {
       case String:

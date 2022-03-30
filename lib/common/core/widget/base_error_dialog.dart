@@ -1,4 +1,4 @@
-import 'package:app_shopee_lite/common/core/theme_manager.dart';
+import 'package:dop_xtel/common/core/theme_manager.dart';
 import 'package:flutter/material.dart';
 
 class BaseErrorDialog extends StatelessWidget {

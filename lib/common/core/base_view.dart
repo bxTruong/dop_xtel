@@ -1,5 +1,5 @@
-import 'package:app_shopee_lite/common/core/widget/base_indicator.dart';
-import 'package:app_shopee_lite/common/resource/enum_resource.dart';
+import 'package:dop_xtel/common/core/widget/base_indicator.dart';
+import 'package:dop_xtel/common/resource/enum_resource.dart';
 import 'package:flutter/material.dart';
 
 class BaseView extends StatelessWidget {

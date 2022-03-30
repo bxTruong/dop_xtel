@@ -74,4 +74,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core'
     implementation 'com.google.firebase:firebase-messaging'
     implementation 'com.android.support:multidex:1.0.1'
+
+    implementation 'com.google.android.gms:play-services-ads:20.6.0'
+
 }

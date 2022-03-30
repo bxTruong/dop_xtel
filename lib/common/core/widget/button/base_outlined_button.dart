@@ -1,4 +1,4 @@
-import 'package:app_shopee_lite/common/resource/color_resource.dart';
+import 'package:dop_xtel/common/resource/color_resource.dart';
 import 'package:flutter/material.dart';
 
 class BaseOutlinedButton extends StatelessWidget {
