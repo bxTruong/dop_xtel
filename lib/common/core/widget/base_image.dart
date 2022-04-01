@@ -3,7 +3,6 @@ import 'package:dop_xtel/common/export_this.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
 class BaseImage {
   static Widget storage({
     required String path,
@@ -19,13 +18,12 @@ class BaseImage {
       padding: paddingValue,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
-        color: Colors.red,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
         child: Image.file(
           File(path),
-          fit: boxFit ?? BoxFit.cover,
+          fit: boxFit ?? BoxFit.contain,
         ),
       ),
     );
@@ -46,7 +44,7 @@ class BaseImage {
       padding: paddingValue,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
-        color: Colors.red,
+        color: color,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
@@ -61,6 +59,7 @@ class BaseImage {
 
   static Widget svg({
     required String path,
+    Key? key,
     BoxFit? boxFit,
     double? width,
     double? height,
@@ -69,18 +68,19 @@ class BaseImage {
     EdgeInsetsGeometry? paddingValue,
   }) {
     return Container(
+      key: key,
       width: width,
       height: height,
       padding: paddingValue,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
-        color: Colors.red,
+        color: color,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
         child: SvgPicture.asset(
           path,
-          fit: boxFit ?? BoxFit.cover,
+          fit: boxFit ?? BoxFit.contain,
           color: color,
         ),
       ),
@@ -102,7 +102,7 @@ class BaseImage {
       padding: paddingValue,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),
-        color: Colors.red,
+        color: color,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadiusValue ?? 0),

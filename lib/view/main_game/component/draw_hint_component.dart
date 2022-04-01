@@ -1,4 +1,5 @@
 import 'package:dop_xtel/common/core/draw/draw_hint.dart';
+import 'package:dop_xtel/common/core/draw/draw_region.dart';
 import 'package:dop_xtel/common/core/draw/draw_true_point.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,11 +14,19 @@ class DrawTruePointComponent extends GetWidget<MainGameController> {
     return Obx(() => Stack(
           children: [
             CustomPaint(
+              painter: DrawRegion(
+                controller.truePointDraw,
+                controller.offsetImage.value,
+                controller.lines,
+              ),
+            ),
+            CustomPaint(
               painter: DrawTruePoint(
                 controller.truePointDraw,
                 controller.offsetImage.value,
               ),
             ),
+
             controller.isShowHint.value
                 ? CustomPaint(
                     painter: DrawHint(
@@ -26,6 +35,7 @@ class DrawTruePointComponent extends GetWidget<MainGameController> {
                     ),
                   )
                 : Container(),
+
           ],
         ));
   }

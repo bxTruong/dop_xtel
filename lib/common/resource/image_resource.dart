@@ -20,5 +20,6 @@ class ImageResource {
   static const String ic_music_note_none = 'assets/icons/music_note_none2.svg';
   static const String ic_button_next = 'assets/icons/button_next.svg';
   static const String ic_button_hint = 'assets/icons/button_hint.svg';
+  static const String ic_internet_warning = 'assets/icons/internet_warning.svg';
 
 }

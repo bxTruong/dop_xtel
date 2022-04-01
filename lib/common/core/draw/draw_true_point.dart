@@ -23,6 +23,7 @@ class DrawTruePoint extends CustomPainter {
       path.lineTo(x1.dx, y1.dy);
       canvas.drawPath(path, paintRed);
     }
+
   }
 
   @override

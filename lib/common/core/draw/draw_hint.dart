@@ -13,6 +13,8 @@ class DrawHint extends CustomPainter {
       ..style = PaintingStyle.fill
       ..color = Colors.white;
 
+
+
     Paint paintStroke = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.5

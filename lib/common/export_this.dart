@@ -14,7 +14,6 @@ export 'core/base_controller.dart';
 export 'core/base_error_dialog.dart';
 
 export 'core/base_function.dart';
-export 'core/base_image.dart';
 
 export 'core/base_responsive.dart';
 

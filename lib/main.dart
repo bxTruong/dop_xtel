@@ -18,6 +18,7 @@ Future<void> main() async {
   MobileAds.instance.initialize();
 
   runApp(const MyApp());
+  // full man hinh
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 }
 

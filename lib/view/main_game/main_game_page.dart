@@ -37,15 +37,18 @@ class MainGamePage extends GetWidget<MainGameController> {
                   const TextLevelComponent(),
                   const ButtonComponent(),
                   const SettingButtonComponent(),
-                  Obx(() => controller.isLoadAds.value
-                      ? Positioned(
-                          bottom: 0,
-                          child: SizedBox(
-                              width: AdHelper.bannerAd!.size.width.toDouble(),
-                              height: AdHelper.bannerAd!.size.height.toDouble(),
-                              child: AdWidget(ad: AdHelper.bannerAd!)),
-                        )
-                      : Container()),
+                  Obx(
+                    () => controller.isLoadAds.value
+                        ? Positioned(
+                            bottom: 0,
+                            child: SizedBox(
+                                width: AdHelper.bannerAd!.size.width.toDouble(),
+                                height:
+                                    AdHelper.bannerAd!.size.height.toDouble(),
+                                child: AdWidget(ad: AdHelper.bannerAd!)),
+                          )
+                        : Container(),
+                  ),
                 ],
               ),
             ),

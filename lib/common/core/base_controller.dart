@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dop_xtel/common/resource/enum_resource.dart';
@@ -20,7 +21,23 @@ class BaseController extends GetxController {
   }
 
   Future<void> fetchData() async {
+    bool checkInternet = await isConnecting;
+    if(!checkInternet){
+      log('No Internet');
+      return;
+    }
+  }
 
+  Future<bool> get isConnecting async => await getConnection();
+
+  Future<bool> getConnection() async {
+    try {
+      final result = await InternetAddress.lookup('google.com');
+      return (result.isNotEmpty && result[0].rawAddress.isNotEmpty);
+    } on SocketException catch (_) {
+      setStatus(Status.noConnection);
+      return false;
+    }
   }
 
   void setStatus(Status s) {
@@ -31,4 +48,3 @@ class BaseController extends GetxController {
     message.value = s;
   }
 }
-

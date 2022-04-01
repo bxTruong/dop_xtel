@@ -15,6 +15,7 @@ class BaseOutlinedButton extends StatelessWidget {
   final double? widthValue;
   final double? heightValue;
   final Color? colorBorderValue;
+  final double? sizeBorder;
 
   const BaseOutlinedButton({
     Key? key,
@@ -31,6 +32,7 @@ class BaseOutlinedButton extends StatelessWidget {
     this.widthValue,
     this.heightValue,
     this.colorBorderValue,
+    this.sizeBorder,
   }) : super(key: key);
 
   @override
@@ -53,6 +55,7 @@ class BaseOutlinedButton extends StatelessWidget {
         style: buttonStyleValue ??
             OutlinedButton.styleFrom(
               side: BorderSide(
+                  width: sizeBorder ?? 1,
                   color: colorBorderValue ?? ColorResource.primary),
               primary: primaryColorValue,
               shape: RoundedRectangleBorder(

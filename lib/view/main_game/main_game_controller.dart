@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dop_xtel/common/core/base_controller.dart';
 import 'package:dop_xtel/common/local_storage/hive_module.dart';
 import 'package:dop_xtel/common/local_storage/load_json_local.dart';
@@ -14,9 +15,11 @@ import 'package:dop_xtel/common/module/ad_rewarded_ads_listerner.dart';
 import 'package:dop_xtel/system/model/draw_hint/hint.dart';
 import 'package:dop_xtel/system/model/drawn_line.dart';
 import 'package:dop_xtel/system/model/game.dart';
+import 'package:dop_xtel/view/main_game/component/dialog_notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:google_mobile_ads/src/ad_containers.dart';
 import 'package:image/image.dart' as img;
 
@@ -34,6 +37,7 @@ class MainGameController extends BaseController
   var isLoadAds = false.obs;
   var isShowHint = false.obs;
   var isNext = false.obs;
+  var isReward = true.obs;
   var line = DrawnLine().obs;
   var lines = <DrawnLine>[].obs;
 
@@ -65,12 +69,26 @@ class MainGameController extends BaseController
     await getRatioImage(gameLoad.value);
     await getTruePointDraw(gameLoad.value);
     await audioBackground();
-    log("RESUME $isMusic");
-
     isMusic.value ? audioCacheBackground.loop(pathBackground) : null;
     audioButton();
     audioLevelComplete();
+    listenerInternet();
     return super.initialData();
+  }
+
+  void listenerInternet() {
+    Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+      if (result == ConnectivityResult.wifi ||
+          result == ConnectivityResult.mobile) {
+        AdHelper.initBannerAd(this);
+        AdHelper.showBannerAd();
+        isReward.value = true;
+        AdHelper.initRewardedAd(this);
+      } else {
+        log('ELSE');
+        isReward.value = false;
+      }
+    });
   }
 
   //------------------------------------- Lan dau vao game
@@ -79,13 +97,13 @@ class MainGameController extends BaseController
       await HiveModule.putValue(
           'LoadLevel',
           Game(
-            id: 1,
-            nameLevel: 'Level 1',
+            id: 2,
+            nameLevel: 'Level 2',
             isPlayed: true,
-            imageFail: 'assets/image/lv1_fail.png',
-            imageSuccess: 'assets/image/lv1_success.png',
-            jsonHint: 'assets/json/level1.json',
-            difficultyLevel: 0,
+            imageFail: 'assets/image/lv2_fail.png',
+            imageSuccess: 'assets/image/lv2_success.png',
+            jsonHint: 'assets/json/level2.json',
+            difficultyLevel: 1,
           ));
 
       await HiveModule.putValue(
@@ -214,20 +232,91 @@ class MainGameController extends BaseController
     }
   }
 
+  //------------------------------- Check Max Min cua vung
+  double yMax = 0;
+  double yMin = 0;
+  double xMax = 0;
+  double xMin = 0;
+
+  void getMaxMinRegion() {
+    getTruePointCheck();
+    List listCheckMaxMin = [];
+    if (Get.width <= photo.value.width) {
+      listCheckMaxMin = truePointCheckRatio;
+    } else {
+      listCheckMaxMin = truePointCheck;
+    }
+    List xList = <double>[];
+    List yList = <double>[];
+    for (var element in listCheckMaxMin) {
+      Offset A = element[0];
+      Offset B = element[1];
+
+      xList.add(A.dx);
+      xList.add(B.dx);
+
+      yList.add(A.dy);
+      yList.add(B.dy);
+    }
+
+    yMax = yList[0];
+    yMin = yList[0];
+    xMax = xList[0];
+    xMin = xList[0];
+
+    for (var element in xList) {
+      if (element > xMax) {
+        xMax = element;
+      }
+      if (xMin > element) {
+        xMin = element;
+      }
+    }
+    for (var element in yList) {
+      if (element > yMax) {
+        yMax = element;
+      }
+      if (yMin > element) {
+        yMin = element;
+      }
+    }
+
+    log("FFFFFFFFFFFFFG $xMax $xMin $yMax $yMin");
+  }
+
   //------------------------------- Check Win and clear Draw
 
   Future<void> checkWin() async {
-    switch (gameLoad.value.difficultyLevel) {
-      case 0:
-        log('abc0 ${collisionList.length} ${truePointDraw.length}');
-        return await checkWinEasy();
-      case 1:
-        log('abc1 ${collisionList.length} ${truePointDraw.length}');
-        return await checkWinMedium();
-      case 2:
-        break;
-      default:
-        break;
+    bool checkRegion = true;
+    for (int i = 0; i < lines.length; i++) {
+      if (lines[i].path != null) {
+        for (int j = 0; j < lines[i].path!.length - 1; j++) {
+          if (lines[i].path![j] != null && lines[i].path![j + 1] != null) {
+            if (lines[i].path![j + 1].dx < (xMin - 20) ||
+                lines[i].path![j + 1].dy < (yMin - 20) ||
+                lines[i].path![j + 1].dx > (xMax + 20) ||
+                lines[i].path![j + 1].dy > (yMax + 20)) {
+              checkRegion = false;
+            }
+          }
+        }
+      }
+    }
+
+    log('REGION ${checkRegion}');
+    if (checkRegion) {
+      switch (gameLoad.value.difficultyLevel) {
+        case 0:
+          log('abc0 ${collisionList.length} ${truePointDraw.length}');
+          return await checkWinEasy();
+        case 1:
+          log('abc1 ${collisionList.length} ${truePointDraw.length}');
+          return await checkWinMedium();
+        case 2:
+          break;
+        default:
+          break;
+      }
     }
   }
 
@@ -273,9 +362,9 @@ class MainGameController extends BaseController
       await HiveModule.putValue('LoadLevel', gameLoad.value);
       AdHelper.initIntertitials(this);
       isWin.value = false;
-      isNext.value = true;
-      await Future.delayed(const Duration(milliseconds: 100));
       isNext.value = false;
+     await Future.delayed(const Duration(milliseconds: 100));
+      getMaxMinRegion();
     } else {
       isWin.value = false;
     }
@@ -294,9 +383,17 @@ class MainGameController extends BaseController
   // }
 
   Future<void> showHint() async {
-    offsetImage.value = getOffsetImage();
-    isVolume.value ? audioCacheButton.play(pathButton) : null;
-    AdHelper.showRewardedAd(this);
+    if (!await isConnecting) {
+      showDialog(
+          context: Get.context!,
+          builder: (BuildContext context) {
+            return const DialogNotification();
+          });
+    } else {
+      offsetImage.value = getOffsetImage();
+      isVolume.value ? audioCacheButton.play(pathButton) : null;
+      AdHelper.showRewardedAd(this);
+    }
   }
 
   // -----------------------------  Image
@@ -430,11 +527,17 @@ class MainGameController extends BaseController
   }
 
   @override
-  void onReady() {
-    AdHelper.initBannerAd(this);
-    AdHelper.showBannerAd();
-    AdHelper.initRewardedAd(this);
+  Future<void> onReady() async {
     offsetImage.value = getOffsetImage();
+    if (await isConnecting) {
+      AdHelper.initBannerAd(this);
+      AdHelper.showBannerAd();
+      isReward.value = true;
+      await AdHelper.initRewardedAd(this);
+    } else {
+      isReward.value = false;
+    }
+    getMaxMinRegion();
     super.onReady();
   }
 
@@ -449,6 +552,13 @@ class MainGameController extends BaseController
   void onUserEarnedReward(AdWithoutView ad, RewardItem reward) {
     isMusic.value ? audioCacheBackground.loop(pathBackground) : null;
     isShowHint.value = true;
+  }
+
+  @override
+  void onLoadedRewarded(AdWithoutView ad) {
+    if (ad.responseInfo != null) {
+      isReward.value = false;
+    }
   }
 
   @override

@@ -1,3 +1,4 @@
+import 'package:dop_xtel/common/core/widget/base_image.dart';
 import 'package:dop_xtel/common/resource/image_resource.dart';
 import 'package:dop_xtel/view/main_game/main_game_controller.dart';
 import 'package:flutter/material.dart';

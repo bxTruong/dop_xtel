@@ -54,7 +54,7 @@ class DrawComponent extends GetWidget<MainGameController> {
           DrawnLine(path: path, color: Colors.black, width: 5);
 
      controller.checkListCollide(point);
-    //log('UPDATE $point');
+    log('UPDATE $point');
   }
 
   void onPanEnd(DragEndDetails details) {
@@ -63,6 +63,6 @@ class DrawComponent extends GetWidget<MainGameController> {
     controller.checkWin();
     controller.clearDraw();
 
-    log('END');
+    log('END ${controller.lines.value}');
   }
 }

@@ -4,7 +4,7 @@ import 'package:dop_xtel/common/export_this.dart';
 import 'package:dop_xtel/common/network/service.dart';
 
 class Client {
-  static String _BASE_URL = 'https://api.clinic.vietsing.xteldev.com/app';
+  static String BASE_URL = 'https://api.clinic.vietsing.xteldev.com/app';
   static const int _CONNECT_TIMEOUT = 1000;
   static const int _RECEIVE_TIMEOUT = 1000;
   static const String _CONTENT_TYPE = 'application/json';
@@ -17,7 +17,7 @@ class Client {
 
   static Dio _configDio() {
     _dio ??= Dio(BaseOptions(
-        baseUrl: _BASE_URL,
+        baseUrl: BASE_URL,
         connectTimeout: _CONNECT_TIMEOUT,
         receiveTimeout: _RECEIVE_TIMEOUT,
         headers: {},
@@ -34,7 +34,7 @@ class Client {
 
   void setUrl(String? url) {
     if (url != null) {
-      _BASE_URL = url;
+      BASE_URL = url;
     }
   }
 

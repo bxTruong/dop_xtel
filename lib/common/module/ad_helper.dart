@@ -189,11 +189,11 @@ class AdHelper {
 
   static RewardedAd? rewardedAd;
 
-  static void initRewardedAd(AdRewardedAdsListener? adRewardedListener) {
-    loadRewardedAd(adRewardedListener);
+  static Future<void> initRewardedAd(AdRewardedAdsListener? adRewardedListener) async {
+   await loadRewardedAd(adRewardedListener);
   }
 
-  static void loadRewardedAd(AdRewardedAdsListener? adRewardedListener) async {
+  static Future<void> loadRewardedAd(AdRewardedAdsListener? adRewardedListener) async {
     await RewardedAd.load(
       adUnitId: rewardedAdUnitId,
       request: const AdRequest(),
